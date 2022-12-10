@@ -1,11 +1,9 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import Slide from "@/components/Slide.vue";
+import type { ISlide } from "@/interfaces/slide.interface";
 
-interface ISlide {
-  image: string;
-  width: Array<string>;
-}
+const allWidth = [];
 
 const slides = ref<Array<ISlide>>([
   {
@@ -54,9 +52,36 @@ const slides = ref<Array<ISlide>>([
       "min-w-[0px] mx-0",
     ],
   },
+  {
+    image: "image_6.jpg",
+    width: [
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[400px]",
+      "min-w-[800px]",
+      "min-w-[150px]",
+      "min-w-[0px] mx-0",
+    ],
+  },
+  {
+    image: "image_7.jpg",
+    width: [
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[400px]",
+      "min-w-[800px]",
+      "min-w-[150px]",
+      "min-w-[0px] mx-0",
+    ],
+  },
 ]);
 
-const widthIndex = ref<number>(0);
+const widthIndex = ref<number>(1);
 
 const next = () => {
   if (widthIndex.value < slides.value.length - 1) {
