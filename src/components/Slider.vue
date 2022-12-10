@@ -2,29 +2,84 @@
 import { ref } from "vue";
 import Slide from "@/components/Slide.vue";
 
-const images = ref<Array<string>>([
-  "image_1.jpg",
-  "image_2.jpg",
-  "image_3.jpg",
-  "image_4.jpg",
-  "image_5.jpg",
-  "image_6.jpg",
-  "image_7.jpg",
+interface ISlide {
+  image: string;
+  width: Array<string>;
+}
+
+const slides = ref<Array<ISlide>>([
+  {
+    image: "image_1.jpg",
+    width: ["min-w-[800px]", "min-w-[150px]", "min-w-[0px] mx-0"],
+  },
+  {
+    image: "image_2.jpg",
+    width: [
+      "min-w-[400px]",
+      "min-w-[800px]",
+      "min-w-[150px]",
+      "min-w-[0px] mx-0",
+    ],
+  },
+  {
+    image: "image_3.jpg",
+    width: [
+      "min-w-[200px]",
+      "min-w-[400px]",
+      "min-w-[800px]",
+      "min-w-[150px]",
+      "min-w-[0px] mx-0",
+    ],
+  },
+  {
+    image: "image_4.jpg",
+    width: [
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[400px]",
+      "min-w-[800px]",
+      "min-w-[150px]",
+      "min-w-[0px] mx-0",
+    ],
+  },
+  {
+    image: "image_5.jpg",
+    width: [
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[200px]",
+      "min-w-[400px]",
+      "min-w-[800px]",
+      "min-w-[150px]",
+      "min-w-[0px] mx-0",
+    ],
+  },
 ]);
 
+const widthIndex = ref<number>(0);
+
 const next = () => {
-  return true;
+  if (widthIndex.value < slides.value.length - 1) {
+    widthIndex.value++;
+  }
 };
 
 const back = () => {
-  return true;
+  if (widthIndex.value > 0) {
+    widthIndex.value--;
+  }
 };
 </script>
 
 <template>
   <div class="py-8 px-4 bg-white overflow-hidden">
     <div class="flex">
-      <Slide v-for="(image, idx) in images" :key="idx" :image="image" />
+      <Slide
+        v-for="(slide, idx) in slides"
+        :key="idx"
+        :slide="slide"
+        :widthIndex="widthIndex"
+      />
     </div>
     <div class="mt-8 mx-4 flex">
       <div
