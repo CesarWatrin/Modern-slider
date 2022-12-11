@@ -15,14 +15,14 @@ const baseWidth = ref<Array<string>>([
 ]);
 
 const width = computed(() => {
-  if (props.index >= 1) {
+  if (props.index > 0) {
     return [
       ...Array(props.index - 1).fill("min-w-[100px]"),
-      ["min-w-[350px]"],
+      "min-w-[350px]",
       ...baseWidth.value,
     ];
   }
-  return baseWidth;
+  return baseWidth.value;
 });
 </script>
 

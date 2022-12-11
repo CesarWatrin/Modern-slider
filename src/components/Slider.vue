@@ -41,7 +41,7 @@ const next = () => {
 };
 
 const back = () => {
-  if (widthIndex.value > 1) {
+  if (widthIndex.value > 0) {
     widthIndex.value--;
   }
 };
@@ -83,8 +83,8 @@ const goTo = (idx: number): void => {
 </script>
 
 <template>
-  <div class="py-8 px-8 bg-white overflow-hidden">
-    <div class="flex w-5/6 overflow-hidden mx-auto">
+  <div class="py-8 px-8 bg-white overflow-hidden flex flex-col items-center">
+    <div class="flex overflow-hidden">
       <Slide
         v-for="(slide, idx) in slides"
         :key="idx"
