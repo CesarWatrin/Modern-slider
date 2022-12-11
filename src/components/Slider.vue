@@ -32,7 +32,7 @@ const slides = ref<Array<ISlide>>([
   },
 ]);
 
-const widthIndex = ref<number>(1);
+const widthIndex = ref<number>(0);
 
 const next = () => {
   if (widthIndex.value < slides.value.length - 1) {
@@ -84,7 +84,7 @@ const goTo = (idx: number): void => {
 
 <template>
   <div class="py-8 px-8 bg-white overflow-hidden flex flex-col items-center">
-    <div class="w-full flex overflow-hidden">
+    <div class="flex w-full overflow-hidden">
       <Slide
         v-for="(slide, idx) in slides"
         :key="idx"
