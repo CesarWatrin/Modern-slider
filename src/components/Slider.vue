@@ -32,7 +32,7 @@ const slides = ref<Array<ISlide>>([
   },
 ]);
 
-const widthIndex = ref<number>(1);
+const widthIndex = ref<number>(0);
 
 const next = () => {
   if (widthIndex.value < slides.value.length - 1) {

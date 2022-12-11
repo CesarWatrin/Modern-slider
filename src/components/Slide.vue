@@ -10,8 +10,6 @@ const props = defineProps<{
 
 const baseWidth = ref<Array<string>>([
   "min-w-[800px]",
-  "min-w-[100px] ml-0",
-  "min-w-[0px] mx-0",
 ]);
 
 const width = computed(() => {
@@ -30,6 +28,6 @@ const width = computed(() => {
   <div
     :style="`background-image: url(${props.slide.image})`"
     class="h-[430px] bg-no-repeat bg-cover bg-center rounded-lg mx-4 animation-all ease-in-out duration-700"
-    :class="width[widthIndex] ?? 'min-w-[0px] mx-0'"
+    :class="width[widthIndex] ?? 'min-w-[100px]'"
   ></div>
 </template>
