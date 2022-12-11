@@ -1,83 +1,36 @@
 <script lang="ts" setup>
-import {ref, watch} from "vue";
+import { ref } from "vue";
 import Slide from "@/components/Slide.vue";
 import type { ISlide } from "@/interfaces/slide.interface";
 
-const allWidth = [];
-
 const slides = ref<Array<ISlide>>([
   {
-    image: "image_1.jpg",
-    width: ["min-w-[800px]", "min-w-[150px]", "min-w-[0px] mx-0"],
+    image:
+      "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   },
   {
-    image: "image_2.jpg",
-    width: [
-      "min-w-[400px]",
-      "min-w-[800px]",
-      "min-w-[150px]",
-      "min-w-[0px] mx-0",
-    ],
+    image:
+      "https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg",
   },
   {
-    image: "image_3.jpg",
-    width: [
-      "min-w-[200px]",
-      "min-w-[400px]",
-      "min-w-[800px]",
-      "min-w-[150px]",
-      "min-w-[0px] mx-0",
-    ],
+    image:
+      "https://petapixel.com/assets/uploads/2022/08/fdfs19-800x533.jpg",
   },
   {
-    image: "image_4.jpg",
-    width: [
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[400px]",
-      "min-w-[800px]",
-      "min-w-[150px]",
-      "min-w-[0px] mx-0",
-    ],
+    image:
+      "https://i.natgeofe.com/n/2a832501-483e-422f-985c-0e93757b7d84/6.jpg?w=636&h=477",
   },
   {
-    image: "image_5.jpg",
-    width: [
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[400px]",
-      "min-w-[800px]",
-      "min-w-[150px]",
-      "min-w-[0px] mx-0",
-    ],
+    image:
+      "https://petapixel.com/assets/uploads/2022/08/fdfs17-800x533.jpg",
   },
   {
-    image: "image_6.jpg",
-    width: [
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[400px]",
-      "min-w-[800px]",
-      "min-w-[150px]",
-      "min-w-[0px] mx-0",
-    ],
+    image:
+      "https://assets.photographycourse.net/wp-content/uploads/2022/04/12225324/Portrait-vs-Landscape-Featured-Image-3.jpg",
   },
   {
-    image: "image_7.jpg",
-    width: [
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[200px]",
-      "min-w-[400px]",
-      "min-w-[800px]",
-      "min-w-[150px]",
-      "min-w-[0px] mx-0",
-    ],
+    image:
+      "https://thumbs.dreamstime.com/b/romanian-hillside-village-summer-time-mountain-landscape-transylvania-romania-romanian-hillside-village-summer-120917479.jpg",
   },
 ]);
 
@@ -133,6 +86,7 @@ window.addEventListener("touchend", function (e) {
       <Slide
         v-for="(slide, idx) in slides"
         :key="idx"
+        :index="idx"
         :slide="slide"
         :widthIndex="widthIndex"
       />
