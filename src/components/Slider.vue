@@ -13,16 +13,14 @@ const slides = ref<Array<ISlide>>([
       "https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg",
   },
   {
-    image:
-      "https://petapixel.com/assets/uploads/2022/08/fdfs19-800x533.jpg",
+    image: "https://petapixel.com/assets/uploads/2022/08/fdfs19-800x533.jpg",
   },
   {
     image:
       "https://i.natgeofe.com/n/2a832501-483e-422f-985c-0e93757b7d84/6.jpg?w=636&h=477",
   },
   {
-    image:
-      "https://petapixel.com/assets/uploads/2022/08/fdfs17-800x533.jpg",
+    image: "https://petapixel.com/assets/uploads/2022/08/fdfs17-800x533.jpg",
   },
   {
     image:
@@ -43,7 +41,7 @@ const next = () => {
 };
 
 const back = () => {
-  if (widthIndex.value > 0) {
+  if (widthIndex.value > 1) {
     widthIndex.value--;
   }
 };
@@ -78,20 +76,25 @@ window.addEventListener("touchend", function (e) {
     back();
   }
 });
+
+const goTo = (idx: number): void => {
+  widthIndex.value = idx;
+};
 </script>
 
 <template>
-  <div class="py-8 px-4 bg-white overflow-hidden">
-    <div class="flex">
+  <div class="py-8 px-8 bg-white overflow-hidden">
+    <div class="flex w-5/6 overflow-hidden mx-auto">
       <Slide
         v-for="(slide, idx) in slides"
         :key="idx"
         :index="idx"
         :slide="slide"
         :widthIndex="widthIndex"
+        @click="goTo(idx)"
       />
     </div>
-    <div class="mt-8 mx-4 flex">
+    <div class="mt-8 flex">
       <div
         class="py-4 px-8 mr-4 bg-amber-500 rounded-lg cursor-pointer"
         @click="back"

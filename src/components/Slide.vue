@@ -10,22 +10,20 @@ const props = defineProps<{
 
 const baseWidth = ref<Array<string>>([
   "min-w-[800px]",
-  "min-w-[150px]",
+  "min-w-[100px] ml-0",
   "min-w-[0px] mx-0",
 ]);
 
 const width = computed(() => {
   if (props.index >= 1) {
     return [
-      ...Array(props.index - 1).fill("min-w-[200px]"),
-      ["min-w-[400px]"],
+      ...Array(props.index - 1).fill("min-w-[100px]"),
+      ["min-w-[350px]"],
       ...baseWidth.value,
     ];
   }
-  return baseWidth.value;
+  return baseWidth;
 });
-
-/*url('/src/assets/images/${props.slide.image}');*/
 </script>
 
 <template>
